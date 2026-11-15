@@ -40,13 +40,23 @@ export const statsSelector = createSelector(
   ({ stats }) => stats,
 )
 
+export const sortieStatsSelector = createSelector(
+  [expCalcStateSelector],
+  ({ sortieStats }) => sortieStats ?? {},
+)
+
+export const shipSortieStatsSelector = createSelector(
+  [expCalcStateSelector],
+  ({ shipSortieStats }) => shipSortieStats ?? {},
+)
+
 export const overrideSelector = createSelector(
   [expCalcStateSelector],
   ({ override }) => override,
 )
 
 export const enablePersonalStatSelector = (state: PoiState): boolean =>
-  state.config?.plugin?.expCalc?.enablePersonalStat ?? true
+  state.config?.plugin?.expCalcSortie?.enablePersonalStat ?? true
 
 /**
  * Every level at which a ship can remodel, keyed by master ship id, with 99 and

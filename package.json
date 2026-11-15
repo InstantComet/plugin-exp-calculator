@@ -1,7 +1,7 @@
 {
-  "name": "poi-plugin-exp-calc",
-  "description": "Calculate experience value.",
-  "version": "6.0.0",
+  "name": "poi-plugin-exp-calc-sortie",
+  "description": "Calculate experience value, with per-sortie stats (fork of poi-plugin-exp-calc).",
+  "version": "6.0.0-sortie.1",
   "main": "index.js",
   "files": [
     "assets",
@@ -77,8 +77,8 @@
   },
   "homepage": "https://github.com/poooi/plugin-exp-calculator#readme",
   "poiPlugin": {
-    "title": "Exp calc",
-    "description": "Exp calculator",
+    "title": "Exp calc (sortie)",
+    "description": "Exp calculator with per-sortie stats",
     "icon": "fa/calculator",
     "priority": 2,
     "apiVer": {

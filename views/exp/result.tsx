@@ -29,9 +29,11 @@ const Divider = styled.div`
 
 interface ResultSelectionProps {
   totalExp: number
+  /** api_id of the selected ship, 0 for the hand-entered one. */
+  shipId: number
 }
 
-const ResultSelection = ({ totalExp }: ResultSelectionProps) => {
+const ResultSelection = ({ totalExp, shipId }: ResultSelectionProps) => {
   const [mapId, setMapId] = useState(0)
   const [mapExp, setMapExp] = useState(100)
   const [rank, setRank] = useState(0) // S victory
@@ -71,6 +73,7 @@ const ResultSelection = ({ totalExp }: ResultSelectionProps) => {
         mapPercent={mapPercent}
         totalExp={totalExp}
         mapId={mapId}
+        shipId={shipId}
       />
     </>
   )

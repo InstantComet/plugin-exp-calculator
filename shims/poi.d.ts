@@ -34,7 +34,7 @@ declare module 'views/utils/selectors' {
 
   export interface PoiConfigState extends Record<string, unknown> {
     plugin?: {
-      expCalc?: {
+      expCalcSortie?: {
         enablePersonalStat?: boolean
       }
     }

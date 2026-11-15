@@ -11,6 +11,7 @@ import {
   enablePersonalStatSelector,
   mapDataSelector,
   overrideSelector,
+  sortieStatsSelector,
   statsSelector,
 } from '../selectors'
 import { OVERRIDE_EXP, PLUGIN_KEY } from '../state'
@@ -56,6 +57,10 @@ const Table = styled(HTMLTable)`
     :nth-child(5) {
       background: ${(props) => props.theme.BLUE2};
     }
+
+    :nth-child(n + 6) {
+      background: ${(props) => props.theme.GREEN3};
+    }
   }
 `
 
@@ -97,6 +102,7 @@ const CustomExpInput = ({ mapId, exp }: CustomExpInputProps) => {
 const ExpTable = () => {
   const maps = useSelector(mapDataSelector)
   const stats = useSelector(statsSelector)
+  const sortieStats = useSelector(sortieStatsSelector)
   const override = useSelector(overrideSelector)
   const enablePersonalStat = useSelector(enablePersonalStatSelector)
 
@@ -108,7 +114,7 @@ const ExpTable = () => {
         checked={enablePersonalStat}
         onChange={() =>
           window.config.set(
-            'plugin.expCalc.enablePersonalStat',
+            'plugin.expCalcSortie.enablePersonalStat',
             !enablePersonalStat,
           )
         }
@@ -123,6 +129,9 @@ const ExpTable = () => {
             <th>{t('Stat')}</th>
             <th>{t('Samples')}</th>
             <th>{t('Custom')}</th>
+            <th>{t('Sorties')}</th>
+            <th>{t('Battles per sortie')}</th>
+            <th>{t('Exp per sortie')}</th>
           </tr>
         </thead>
         <tbody>
@@ -145,6 +154,9 @@ const ExpTable = () => {
                     exp={customExp}
                   />
                 </td>
+                <td>{sortieStats[mapId]?.count || 0}</td>
+                <td>{(sortieStats[mapId]?.battles ?? 0).toFixed(1)}</td>
+                <td>{Math.floor(sortieStats[mapId]?.baseExp ?? 0)}</td>
               </tr>
             )
           })}

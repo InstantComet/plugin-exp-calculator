@@ -19,8 +19,8 @@
   "First fleet": "第一舰队",
   "Lock the goal level": "锁定目标等级",
   "Unlock": "解锁",
-  "Custom Exp":"自定义经验值",
-  "Customized":"固定经验值",
+  "Custom Exp": "自定义经验值",
+  "Customized": "固定经验值",
   "Custom": "自定义",
   "Next": "下一级",
   "Remaining": "仍需",
@@ -45,5 +45,14 @@
   "Click to edit": "点击以更改",
   "Fixed": "固定值",
   "Personal": "个人值",
-  "Use personal statistics data (if samples are more than 30)": "使用个人统计数据（当样本数量大于 30 时）"
+  "Use personal statistics data (if samples are more than 30)": "使用个人统计数据（当样本数量大于 30 时）",
+  "Per sortie": "每次出击",
+  "Sorties left": "剩余出击",
+  "Sortie stat": "按出击统计：{{count}} 次出击，平均每次 {{battles}} 战（评价按实际结果）",
+  "This ship": "本舰实测",
+  "Ship sortie stat": "每次出击 {{exp}} 经验（{{count}} 次样本），剩余约 {{left}} 次出击",
+  "Sorties": "出击次数",
+  "Battles per sortie": "每次战斗数",
+  "Exp per sortie": "每次出击基础经验",
+  "Exp calc (sortie)": "经验计算（出击）"
 }

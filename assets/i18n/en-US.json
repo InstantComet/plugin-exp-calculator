@@ -17,6 +17,15 @@
   "Remainder": "Remainder",
   "Exp": "Exp",
   "+ {{bonus}} for each fleet": "+ {{bonus}} for each fleet",
-  "Customized Exp":"Customized Exp",
-  "Customized":"Customized"
+  "Customized Exp": "Customized Exp",
+  "Customized": "Customized",
+  "Per sortie": "Per sortie",
+  "Sorties left": "Sorties left",
+  "Sortie stat": "Per sortie: {{count}} sorties, {{battles}} battles each on average (actual ranks)",
+  "This ship": "This ship",
+  "Ship sortie stat": "{{exp}} exp per sortie ({{count}} samples), about {{left}} sorties left",
+  "Sorties": "Sorties",
+  "Battles per sortie": "Battles/sortie",
+  "Exp per sortie": "Base exp/sortie",
+  "Exp calc (sortie)": "Exp calc (sortie)"
 }

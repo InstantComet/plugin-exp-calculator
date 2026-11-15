@@ -7,13 +7,21 @@ import { expClass } from '../../constants'
 import {
   enablePersonalStatSelector,
   overrideSelector,
+  shipSortieStatsSelector,
+  sortieStatsSelector,
   statsSelector,
 } from '../../selectors'
 import { PLUGIN_KEY } from '../../state'
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`
+
+const SortieNote = styled.div`
+  margin: 0.5em 0;
+  text-align: center;
 `
 
 const emptyStat = { count: 0, average: 0 }
@@ -29,6 +37,8 @@ interface ResultTableProps {
   /** Exp still needed to reach the goal level. */
   totalExp: number
   mapId: number
+  /** api_id of the selected ship, 0 for the hand-entered one. */
+  shipId: number
 }
 
 const ResultTable = ({
@@ -36,10 +46,13 @@ const ResultTable = ({
   mapPercent,
   totalExp,
   mapId,
+  shipId,
 }: ResultTableProps) => {
   const enablePersonalStat = useSelector(enablePersonalStatSelector)
   const override = useSelector(overrideSelector)
   const stats = useSelector(statsSelector)
+  const sortieStats = useSelector(sortieStatsSelector)
+  const shipSortieStats = useSelector(shipSortieStatsSelector)
 
   const { t } = useTranslation(PLUGIN_KEY)
 
@@ -65,6 +78,14 @@ const ResultTable = ({
   const baseExp = finalMapExp * mapPercent
   const baseCount = Math.max(totalExp / baseExp, 0)
 
+  // measured per sortie: each battle's rank is already applied, so the rank
+  // picked above does not touch these
+  const sortieStat = mapId ? sortieStats[mapKey] : undefined
+  const sortieExp = sortieStat?.count ? sortieStat.baseExp : 0
+  const shipStat =
+    mapId && shipId ? shipSortieStats[mapKey]?.[shipId] : undefined
+  const remaining = Math.max(totalExp, 0)
+
   return (
     <Wrapper>
       <HTMLTable interactive>
@@ -77,6 +98,8 @@ const ResultTable = ({
             </th>
             <th>{t('Per attack')}</th>
             <th>{t('Remainder')}</th>
+            {sortieExp > 0 && <th>{t('Per sortie')}</th>}
+            {sortieExp > 0 && <th>{t('Sorties left')}</th>}
           </tr>
         </thead>
         <tbody>
@@ -85,10 +108,41 @@ const ResultTable = ({
               <td>{t(name)}</td>
               <td>{Math.floor(baseExp * expClassScales[idx])}</td>
               <td>{Math.ceil(baseCount / expClassScales[idx])}</td>
+              {sortieExp > 0 && (
+                <td>{Math.floor(sortieExp * expClassScales[idx])}</td>
+              )}
+              {sortieExp > 0 && (
+                <td>
+                  {Math.ceil(remaining / (sortieExp * expClassScales[idx]))}
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
       </HTMLTable>
+      {sortieStat && sortieStat.count > 0 && (
+        <SortieNote>
+          {t('Sortie stat', {
+            count: sortieStat.count,
+            battles: sortieStat.battles.toFixed(1),
+          })}
+        </SortieNote>
+      )}
+      {shipStat && shipStat.count > 0 && (
+        <SortieNote>
+          <Tag intent={Intent.SUCCESS} minimal>
+            {t('This ship')}
+          </Tag>{' '}
+          {t('Ship sortie stat', {
+            exp: Math.floor(shipStat.average),
+            count: shipStat.count,
+            left:
+              shipStat.average > 0
+                ? Math.ceil(remaining / shipStat.average)
+                : '-',
+          })}
+        </SortieNote>
+      )}
     </Wrapper>
   )
 }

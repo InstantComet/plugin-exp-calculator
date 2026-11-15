@@ -20,8 +20,8 @@
   "First fleet": "第一艦隊",
   "Lock the goal level": "目標レベルをロックする",
   "Unlock": "ロック解除",
-  "Custom Exp":"経験値設定",
-  "Customized":"固定経験値",
+  "Custom Exp": "経験値設定",
+  "Customized": "固定経験値",
   "Custom": "設定",
   "Next": "次のレベルまて",
   "Remaining": "残り",
@@ -46,5 +46,14 @@
   "Click to edit": "クリックして編集",
   "Fixed": "固定",
   "Personal": "個人",
-  "Use personal statistics data (if samples are more than 30)": "個人統計データを使用する（サンプルが 30 を超える場合）"
+  "Use personal statistics data (if samples are more than 30)": "個人統計データを使用する（サンプルが 30 を超える場合）",
+  "Per sortie": "出撃毎",
+  "Sorties left": "残り出撃",
+  "Sortie stat": "出撃統計：{{count}} 回、平均 {{battles}} 戦/出撃（実際の勝利判定）",
+  "This ship": "この艦の実績",
+  "Ship sortie stat": "出撃毎 {{exp}} 経験値（{{count}} 回）、残り約 {{left}} 回",
+  "Sorties": "出撃数",
+  "Battles per sortie": "戦闘数/出撃",
+  "Exp per sortie": "出撃毎基本経験値",
+  "Exp calc (sortie)": "経験値計算（出撃）"
 }

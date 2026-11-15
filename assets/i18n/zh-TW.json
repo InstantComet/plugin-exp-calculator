@@ -20,8 +20,8 @@
   "First fleet": "第一艦隊",
   "Lock the goal level": "鎖定目標等級",
   "Unlock": "解鎖",
-  "Custom Exp":"自定義經驗值",
-  "Customized":"固定經驗值",
+  "Custom Exp": "自定義經驗值",
+  "Customized": "固定經驗值",
   "Custom": "自定義",
   "Next": "下一級",
   "Remaining": "仍需",
@@ -46,5 +46,14 @@
   "Click to edit": "點擊以更改",
   "Fixed": "固定值",
   "Personal": "個人值",
-  "Use personal statistics data (if samples are more than 30)": "使用個人統計數據（當樣本數量大於 30 時）"
+  "Use personal statistics data (if samples are more than 30)": "使用個人統計數據（當樣本數量大於 30 時）",
+  "Per sortie": "每次出擊",
+  "Sorties left": "剩餘出擊",
+  "Sortie stat": "按出擊統計：{{count}} 次出擊，平均每次 {{battles}} 戰（評價按實際結果）",
+  "This ship": "本艦實測",
+  "Ship sortie stat": "每次出擊 {{exp}} 經驗（{{count}} 次樣本），剩餘約 {{left}} 次出擊",
+  "Sorties": "出擊次數",
+  "Battles per sortie": "每次戰鬥數",
+  "Exp per sortie": "每次出擊基礎經驗",
+  "Exp calc (sortie)": "經驗計算（出擊）"
 }

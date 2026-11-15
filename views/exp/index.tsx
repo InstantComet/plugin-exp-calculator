@@ -166,7 +166,7 @@ const ExpCalc = () => {
         </ExpProgress>
       </div>
       <div>
-        <Result totalExp={totalExp} />
+        <Result totalExp={totalExp} shipId={id > 0 && ship ? id : 0} />
       </div>
     </div>
   )

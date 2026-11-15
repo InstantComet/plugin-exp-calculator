@@ -285,6 +285,16 @@ export const expLevel = ['S', 'A', 'B', 'C', 'D']
 // exp effect for battle results
 export const expPercent = [1.2, 1.0, 1.0, 0.8, 0.7]
 
+/** Base exp multiplier by api_win_rank. */
+export const rankExpPercent: Record<string, number> = {
+  S: 1.2,
+  A: 1.0,
+  B: 1.0,
+  C: 0.8,
+  D: 0.7,
+  E: 0.5,
+}
+
 // bonus for training cruiser as flagship
 export const bonusExpScaleFlagship = [
   [5, 8, 11, 15, 20],
